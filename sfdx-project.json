@@ -1,0 +1,12 @@
+{
+  "packageDirectories": [
+    {
+      "path": "PatronManager",
+      "default": true
+    }
+  ],
+  "name": "PatronManager",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "51.0"
+}
