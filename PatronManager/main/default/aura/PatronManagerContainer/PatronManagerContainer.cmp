@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="PatronManagerContainerController">
+	
+    
+    <aura:attribute name="listOfCities" type="Object[]" description="used for storing list of citires that are present in the org"/>
+    <aura:attribute name="searchKeyWord" type="String" description="used for storing the search term"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    
+    <div class="exampleHolder">
+        <lightning:spinner alternativeText="Loading" size="medium" class="{!v.isLoading ? 'slds-show' : 'slds-hide'}"/>
+    </div>
+    <div class="slds-box slds-theme_default">
+        <lightning:input name="citySearch" label="Search for a city" placeholder="Enter a city name..." value="{!v.searchKeyWord}" oncommit="{!c.searchKeyTerm}"/>
+        <div class="c-container">
+                <aura:iteration items="{!v.listOfCities}" var="city">
+                    <c:City cityObject="{!city}"/>
+                </aura:iteration>   
+        </div>
+    </div>
+</aura:component>
